@@ -20,14 +20,7 @@ pipeline {
                 mail bcc: '', body: 'Build completed', cc: '', from: '', replyTo: '', subject: 'Build completed', to: 'jenkinsamplesmtp@gmail.com'
 
             }
-            post {
-                success {
-                    zip zipFile: 'nop.web.zip',
-                      archive: true,
-                      dir: './published',
-                      overwrite: true
-                }
-            }
+
         }
 
     }
