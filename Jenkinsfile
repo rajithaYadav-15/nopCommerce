@@ -12,10 +12,12 @@ pipeline {
         }
         stage('build') {
             steps {
+            	mail bcc: '', body: 'Build Started', cc: '', from: '', replyTo: '', subject: 'Build Started', to: 'jenkinsamplesmtp@gmail.com'
                 //sh 'dotnet publish -o published/ -c Release src/Presentation/Nop.Web/Nop.Web.csproj'
                 dotnetPublish configuration: 'Release',
                     outputDirectory: 'published',
                     project: 'src/Presentation/Nop.Web/Nop.Web.csproj'
+                mail bcc: '', body: 'Build completed', cc: '', from: '', replyTo: '', subject: 'Build completed', to: 'jenkinsamplesmtp@gmail.com'
 
             }
             post {
